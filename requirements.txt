@@ -38,8 +38,6 @@ lightgbm==2.1.2
 Mako==1.0.12
 MarkupSafe==1.1.1
 matplotlib==3.1.0
-mkl-fft>=1.0
-mkl-random>=1.0
 mpld3==0.3
 nbformat==4.4.0
 notebook==5.6.0
