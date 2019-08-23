@@ -1,0 +1,17 @@
+{
+  "questions": [
+    {
+      "body": "What is your name(either English or Chinese)?",
+      "type": "text"
+    },
+    {
+      "body": "Your Company Name",
+      "type": "text"
+    },
+    {
+      "body": "Company Location",
+      "type": "text"
+    }
+  ],
+  "title": "User Info"
+}
