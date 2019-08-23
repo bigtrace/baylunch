@@ -37,8 +37,10 @@ def sms_ahoy_reply():
     # Start our response
     resp = MessagingResponse()
 
-    # Add a message
-    resp.message("Ahoy! Thanks so much for your message.")
+    # Add a text message
+    msg = resp.message("Ahoy! Thanks so much for your message.")
+    # Add a picture message
+    msg.media("https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg")
 
     return str(resp)
 
