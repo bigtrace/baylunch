@@ -1,13 +1,13 @@
 
 from app import create_app,db
-from app.models import User, Order
+from app.models import Customer, Order
 
 
 app = create_app()
 
 @app.shell_context_processor
 def make_shell_context():
-    return {'db': db, 'User': User, 'Order': Order}
+    return {'db': db, 'Customer': Customer, 'Order': Order}
 
 
 if __name__=="__main__":

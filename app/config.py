@@ -8,7 +8,7 @@ class Config:
     MAIL_PORT = 587
     MAIL_USE_TLS = True
     MAIL_USERNAME = 'caia.bigtrace@gmail.com'
-    MAIL_PASSWORD = 'biubiu123' #os.environ.get('EMAIL_PASS')
+    MAIL_PASSWORD = '123' #os.environ.get('EMAIL_PASS')
     RECAPTCHA_USE_SSL= False
     RECAPTCHA_PUBLIC_KEY='6Leg-qsUAAAAANLxfagFF0ODbEDSH3cEwc3Ll4TE'
     RECAPTCHA_PRIVATE_KEY='6Leg-qsUAAAAAA7bukfUttDw-6Csc46WGeAEit0H'

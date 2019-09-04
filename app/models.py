@@ -16,31 +16,16 @@ def load_user(user_id):
 
 class Customer(db.Model,UserMixin):
     id = db.Column(db.Integer,primary_key=True)
-    username= db.Column(db.String(20),unique=True,nullable=False)
     phone=db.Column(db.String(12),unique=True,nullable=False)
+    username= db.Column(db.String(20),unique=True,nullable=False)
     company=db.Column(db.String(20),nullable=True)
     company_loc=db.Column(db.String(20),nullable=True)
-    #email=db.Column(db.String(120),unique=True,nullable=False)
+    email=db.Column(db.String(120),unique=True,nullable=True)
     image_file=db.Column(db.String(20),nullable=False,default='default.jpg')
-    #password=db.Column(db.String(60),nullable=False)
+    password=db.Column(db.String(60),nullable=True)
     orders=  db.relationship('Order',backref='customer',lazy=True)
     def __repr__(self):
         return f"Customer('{self.username}','{self.phone}','{self.company}')"
-
-    # def get_reset_token(self,expires_sec=600):
-    #     s = Serializer(current_app.config['SECRET_KEY'],expires_sec)
-    #     return s.dumps({'user_id': self.id}).decode('utf-8')
-    #
-    # @staticmethod
-    # def verify_token(token):
-    #     s = Serializer(current_app.config['SECRET_KEY'])
-    #     try:
-    #         user_id = s.loads(token)['user_id']
-    #     except:
-    #         return None
-    #     return User.query.get(user_id)
-
-
 
 
 
