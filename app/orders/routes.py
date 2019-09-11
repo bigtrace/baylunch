@@ -14,20 +14,20 @@ def post(order_id):
     order = Order.query.get_or_404(order_id)
     return render_template('post.html', title=order.dish_name, order=order)
 
-#
-# # create post
-# @posts.route("/post/new",methods=['GET','POST'])
-# @login_required
-# def new_post():
-#     form_obj = PostForm()
-#     if form_obj.validate_on_submit():
-#         post = Post(title =form_obj.title.data,content= form_obj.content.data,author=current_user)
-#         db.session.add(post)
-#         db.session.commit()
-#         flash(f'Post has been created successfully','success')
-#         return redirect(url_for('main.home'))
-#
-#     return render_template('create_post.html', title='New Post',legend='Create Post',form=form_obj)
+
+# create post
+@orders.route("/orders/new",methods=['GET','POST'])
+@login_required
+def new_post():
+    form_obj = OrderForm()
+    if form_obj.validate_on_submit():
+        post = Order(title =form_obj.title.data,content= form_obj.content.data,author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash(f'Post has been created successfully','success')
+        return redirect(url_for('main.home'))
+
+    return render_template('create_post.html', title='New Post',legend='Create Post',form=form_obj)
 #
 # # update post
 # @posts.route("/post/<int:post_id>/update",methods=['GET','POST'])

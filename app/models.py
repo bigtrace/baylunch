@@ -32,10 +32,11 @@ class Customer(db.Model,UserMixin):
 class Order(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     dish_name= db.Column(db.String(20),nullable=False)
+    dish_number = db.Column(db.Integer,nullable=False,default=0)
     pickup = db.Column(db.String(20),nullable=False)
     date_posted=db.Column(db.DateTime,nullable=False,default=datetime.utcnow)
     notes=db.Column(db.Text,nullable=False)
     customer_id = db.Column(db.Integer,db.ForeignKey('customer.id'),nullable=False)
 
     def __repr__(self):
-        return f"Order('{self.dish_name}','{self.pickup}','{self.notes}')"
+        return f"Order('{self.dish_name}','x{self.dish_number}','{self.pickup}','{self.notes}')"

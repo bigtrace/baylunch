@@ -15,9 +15,9 @@ def register():
 
     form_obj  = RegisterForm()
     if form_obj.validate_on_submit():
-
         hashed_pwd = bcrypt.generate_password_hash(form_obj.password.data).decode('utf-8')
         user = Customer(phone=form_obj.phone.data,username=form_obj.username.data,password=hashed_pwd)
+
         db.session.add(user)
         db.session.commit()
         flash(f'Account has been created successfully.You can log in now','success')
@@ -74,7 +74,15 @@ def account():
         current_user.username = form_obj.username.data
         current_user.email = form_obj.email.data
 
-        current_user.company = form_obj.company.data
+        if form_obj.preset_company.data !='Others':
+            current_user.company = form_obj.preset_company.data
+            current_user.image_file = current_user.company + '.png'
+        else:
+            current_user.company = form_obj.company.data
+
+
+
+
         current_user.company_loc = form_obj.company_loc.data
 
 

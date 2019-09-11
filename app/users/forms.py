@@ -42,9 +42,9 @@ class UpdateAccounForm(FlaskForm):
     username=StringField('Username',validators=[DataRequired(),Length(min=3,max=10)])
     email=StringField('Email',validators=[Email()])
     #company=StringField('Company',validators=[Length(min=2,max=10)])
-    dropdown_list = [('TD','TD'),('RBC','RBC'),('ScotiaBank','ScotiaBank'),('BMO','BMO'),('AGF','AGF'),('Others','Others')]
-    preset_company = SelectField('Company', choices=dropdown_list, default=1)
-    company = StringField('or fill your company name manually', validators=[Length(min=2, max=10)])
+    dropdown_list = [('Others','...'),('TD','TD'),('RBC','RBC'),('ScotiaBank','ScotiaBank'),('BMO','BMO'),('CIBC','CIBC'),('AGF','AGF')]
+    preset_company = SelectField('Select your company', choices=dropdown_list, default=1)
+    company = StringField('or type your company name manually', validators=[Length(min=2, max=10)])
 
     company_loc=StringField('Company Location',validators=[Length(min=3,max=20)])
     picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png'])])
