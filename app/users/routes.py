@@ -15,6 +15,7 @@ def register():
 
     form_obj  = RegisterForm()
     if form_obj.validate_on_submit():
+        print('dafsdfa')
         hashed_pwd = bcrypt.generate_password_hash(form_obj.password.data).decode('utf-8')
         user = Customer(phone=form_obj.phone.data,username=form_obj.username.data,password=hashed_pwd)
 

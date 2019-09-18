@@ -10,23 +10,22 @@ from app.models import Customer
 class RegisterForm(FlaskForm):
     phone=StringField('Phone: (+1)',validators=[DataRequired(),Length(min=10,max=10)])
     username=StringField('Username',validators=[DataRequired(),Length(min=3,max=10)])
-    email=StringField('Email(Optional)',validators=[Email()])
+    #email=StringField('Email(Optional)',validators=[Email()])
     password=PasswordField('password',validators=[DataRequired()])
     confirm_password=PasswordField('Comfirm your Password',validators=[DataRequired(),EqualTo('password')])
     #recaptcha = RecaptchaField()
     submit=SubmitField('Sign up')
     def validate_phone(self,phone):
-    	customer = Customer.query.filter_by(phone=phone.data).first()
-    	if customer:
-    		raise ValidationError('This phone number has been taken,choose another phone number.')
-    def validate_email(self,email):
-    	customer = Customer.query.filter_by(email=email.data).first()
-    	if customer:
-    		raise ValidationError('Email has been taken,choose another one.')
+        print('verify phone')
+        customer = Customer.query.filter_by(phone=phone.data).first()
+        if customer:
+            raise ValidationError('This phone number has been taken,choose another phone number.')
+
     def validate_username(self,username):
-    	customer = Customer.query.filter_by(username=username.data).first()
-    	if customer:
-    		raise ValidationError('Username has been taken,choose another one.')
+        print('verify username')
+        customer = Customer.query.filter_by(username=username.data).first()
+        if customer:
+            raise ValidationError('Username has been taken,choose another one.')
 
 
 
